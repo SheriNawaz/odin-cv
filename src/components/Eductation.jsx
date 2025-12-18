@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Education() {
+function Education({ onDataChange }) {
   const [isEditing, setIsEditing] = useState(true);
   const [formData, setFormData] = useState({
     name: '',
@@ -9,10 +9,12 @@ function Education() {
   });
 
   const handleChange = (e) => {
-    setFormData({
+    const newData = {
       ...formData,
       [e.target.name]: e.target.value
-    });
+    };
+    setFormData(newData);
+    onDataChange(newData);
   };
 
   const handleEdit = () => {
@@ -78,5 +80,6 @@ function Education() {
     )
   }
 }
+
 
 export default Education;

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function GeneralInfo() {
+function GeneralInfo({ onDataChange }) {
   const [isEditing, setIsEditing] = useState(true);
   const [formData, setFormData] = useState({
     name: '',
@@ -9,10 +9,12 @@ function GeneralInfo() {
   });
 
   const handleChange = (e) => {
-    setFormData({
+    const newData = {
       ...formData,
       [e.target.name]: e.target.value
-    });
+    };
+    setFormData(newData);
+    onDataChange(newData);
   };
 
   const handleEdit = () => {
@@ -78,4 +80,5 @@ function GeneralInfo() {
     )
   }
 }
+
 export default GeneralInfo;

@@ -235,6 +235,150 @@ body {
     padding-bottom: 0;
 }
 
+/* CV Styles */
+.cv-container {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.cv-actions {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.cv-document {
+    background: white;
+    padding: 48px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    max-width: 8.5in;
+    margin: 0 auto;
+}
+
+.cv-header {
+    text-align: center;
+    padding-bottom: 32px;
+    border-bottom: 2px solid #2d3748;
+    margin-bottom: 32px;
+}
+
+.cv-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.cv-contact {
+    font-size: 1rem;
+    color: #4a5568;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.cv-separator {
+    color: #cbd5e0;
+}
+
+.cv-section {
+    margin-bottom: 32px;
+}
+
+.cv-section:last-child {
+    margin-bottom: 0;
+}
+
+.cv-section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #2d3748;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #667eea;
+}
+
+.cv-section-content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.cv-entry {
+    padding-left: 0;
+}
+
+.cv-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+    gap: 16px;
+}
+
+.cv-institution,
+.cv-company {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 4px;
+}
+
+.cv-degree,
+.cv-position {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: #4a5568;
+    font-style: italic;
+}
+
+.cv-date {
+    font-size: 0.95rem;
+    color: #718096;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.cv-description {
+    font-size: 1rem;
+    color: #4a5568;
+    line-height: 1.6;
+    margin-top: 8px;
+}
+
+@media print {
+    body {
+    background: white;
+    padding: 0;
+    }
+
+    .container {
+    max-width: 100%;
+    }
+
+    .cv-actions {
+    display: none;
+    }
+
+    .cv-container {
+    box-shadow: none;
+    padding: 0;
+    }
+
+    .cv-document {
+    border: none;
+    box-shadow: none;
+    padding: 0.5in;
+    }
+}
+
 @media (max-width: 768px) {
     .header {
     padding: 24px;
@@ -258,5 +402,21 @@ body {
 
     .btn {
     width: 100%;
+    }
+
+    .cv-document {
+    padding: 24px;
+    }
+
+    .cv-name {
+    font-size: 2rem;
+    }
+
+    .cv-entry-header {
+    flex-direction: column;
+    }
+
+    .cv-date {
+    align-self: flex-start;
     }
 }

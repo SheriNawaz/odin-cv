@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Experience() {
+function Experience({ onDataChange }) {
   const [experiences, setExperiences] = useState([
     {
       id: 1,
@@ -15,9 +15,11 @@ function Experience() {
   ]);
 
   const handleChange = (id, field, value) => {
-    setExperiences(experiences.map(exp => 
+    const updated = experiences.map(exp => 
       exp.id === id ? { ...exp, [field]: value } : exp
-    ));
+    );
+    setExperiences(updated);
+    onDataChange(updated);
   };
 
   const handleSubmit = (id, e) => {
@@ -35,14 +37,16 @@ function Experience() {
 
   const handleDelete = (id) => {
     if (experiences.length > 1) {
-      setExperiences(experiences.filter(exp => exp.id !== id));
+      const updated = experiences.filter(exp => exp.id !== id);
+      setExperiences(updated);
+      onDataChange(updated);
     }
   };
 
   const handleAddNew = () => {
     if (experiences.length < 4) {
       const newId = Math.max(...experiences.map(exp => exp.id)) + 1;
-      setExperiences([...experiences, {
+      const updated = [...experiences, {
         id: newId,
         name: '',
         title: '',
@@ -51,7 +55,9 @@ function Experience() {
         dateFinished: '',
         isCurrent: false,
         isEditing: true
-      }]);
+      }];
+      setExperiences(updated);
+      onDataChange(updated);
     }
   };
 
@@ -156,5 +162,6 @@ function Experience() {
     </div>
   );
 }
+
 
 export default Experience;
